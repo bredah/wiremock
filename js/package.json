@@ -1,0 +1,28 @@
+{
+  "name": "js-wiremock",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "pretest": "npm run wiremock:start",
+    "test": "jest",
+    "posttest": "npm run wiremock:stop",
+    "wiremock:start": "wiremock --port 9999 --verbose --local-response-templating --root-dir ../wiremock > wiremock.log &",
+    "wiremock:stop": "curl -X POST http://localhost:9999/__admin/shutdown",
+    "lint": "eslint --ignore-path .gitignore ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "axios": "^0.19.2",
+    "babel-jest": "^25.4.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.4.0",
+    "uuid": "^8.0.0",
+    "wiremock": "^2.26.3"
+  }
+}

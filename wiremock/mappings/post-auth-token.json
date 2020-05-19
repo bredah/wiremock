@@ -1,0 +1,23 @@
+{
+  "uuid": "694d3b28-9082-11ea-bb37-0242ac130002",
+  "request": {
+    "url": "/api/users/auth",
+    "method": "POST",
+    "headers": {
+      "Accept": {
+        "equalTo": "application/json"
+      },
+      "Content-Type": {
+        "equalTo": "application/json"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": "{\"token_type\": \"Bearer\",\"access_token\":\"{{randomValue length=20 type='ALPHANUMERIC'}}\"}",
+    "transformers": ["response-template"],
+    "headers": {
+      "Content-Type": "application/json;charset=utf-8"
+    }
+  }
+}

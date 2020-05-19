@@ -1,0 +1,23 @@
+{
+  "uuid": "694d3984-9082-11ea-bb37-0242ac130002",
+  "request": {
+    "url": "/api/products/1",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "success": true,
+      "total": 1,
+      "content": {
+        "id": 1,
+        "description": "Product 01",
+        "price": 2.55
+      }
+    },
+    "transformers": ["response-template"],
+    "headers": {
+      "Content-Type": "application/json;charset=utf-8"
+    }
+  }
+}

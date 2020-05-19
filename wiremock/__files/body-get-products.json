@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "total": 3,
+  "content": [
+    {
+      "id": 1,
+      "description": "Product 01",
+      "price": 2.55
+    },
+    {
+      "id": 2,
+      "description": "Product 02",
+      "price": 3.41
+    },
+    {
+      "id": 3,
+      "description": "Product 03",
+      "price": 7.98
+    }
+  ]
+}

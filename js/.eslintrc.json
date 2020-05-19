@@ -1,0 +1,15 @@
+{
+  "extends": ["eslint:recommended", "plugin:jest/recommended"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "array-element-newline": ["error", "consistent"],
+    "max-len": ["error", { "code": 80 }, { "ignoreStrings": true }]
+  }
+}

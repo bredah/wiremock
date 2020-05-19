@@ -1,0 +1,15 @@
+{
+  "uuid": "57a67970-9082-11ea-bb37-0242ac130002",
+  "request": {
+    "url": "/api/products/1",
+    "method": "PUT"
+  },
+  "response": {
+    "status": 200,
+    "body": "{\"success\":true,\"content\":{\"id\":4,\"description\":\"{{jsonPath request.body '$.description'}}\",\"price\": {{jsonPath request.body '$.price'}} }}",
+    "transformers": ["response-template"],
+    "headers": {
+      "Content-Type": "application/json;charset=utf-8"
+    }
+  }
+}

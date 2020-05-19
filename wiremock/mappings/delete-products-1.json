@@ -1,0 +1,17 @@
+{
+  "uuid": "694d389e-9082-11ea-bb37-0242ac130002",
+  "request": {
+    "url": "/api/products/1",
+    "method": "DELETE"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "success": true
+    },
+    "transformers": ["response-template"],
+    "headers": {
+      "Content-Type": "application/json;charset=utf-8"
+    }
+  }
+}

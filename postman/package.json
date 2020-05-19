@@ -1,0 +1,14 @@
+{
+  "name": "postman",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "newman run wiremock.postman_collection.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "newman": "^5.0.0"
+  }
+}
