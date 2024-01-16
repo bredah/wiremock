@@ -8,7 +8,6 @@
     "status": 200,
     "jsonBody": {
       "success": true,
-      "total": 1,
       "content": {
         "id": 1,
         "description": "Product 01",
