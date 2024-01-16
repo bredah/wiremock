@@ -1,6 +1,15 @@
 const api = require('../src/api');
+import Ajv from 'ajv';
 import Wiremock from '../src/wiremock';
 const uuid = require('uuid');
+const ajv = new Ajv();
+
+const getSchema = require('../../schemas/get.schema.json');
+const getAllSchema = require('../../schemas/get-all.schema.json');
+const postSchema = require('../../schemas/post.schema.json');
+const putSchema = require('../../schemas/put.schema.json');
+const deleteSchema = require('../../schemas/delete.schema.json');
+
 
 describe('Wiremock', () => {
   describe('Use mapping file', () => {
@@ -115,6 +124,7 @@ describe('Wiremock', () => {
       expect(response.data.success).toBeTruthy();
       expect(response.data.total).toBe(3);
       expect(response.data.content.length).toBe(3);
+      expect(schemaIsValid(getAllSchema, response.data)).toBeTruthy();
     });
     it('GET', async () => {
       let mappingBody = {
@@ -146,6 +156,7 @@ describe('Wiremock', () => {
       expect(response.data.success).toBeTruthy();
       expect(response.data.total).toBe(1);
       expect(response.data.content).toEqual(mappingBody.content);
+      expect(schemaIsValid(getSchema, response.data)).toBeTruthy();
     });
 
     it('POST', async () => {
@@ -179,6 +190,7 @@ describe('Wiremock', () => {
       expect(response.data.content.description).toBe(data.description);
       expect(typeof response.data.content.price).toBe('number');
       expect(response.data.content.price).toBe(data.price);
+      expect(schemaIsValid(postSchema, response.data)).toBeTruthy();
     });
 
     it('PUT', async () => {
@@ -209,6 +221,7 @@ describe('Wiremock', () => {
       expect(response.data.content.id).toBe(2);
       expect(response.data.content.description).toBe(data.description);
       expect(response.data.content.price).toBe(data.price);
+      expect(schemaIsValid(putSchema, response.data)).toBeTruthy();
     });
 
     it('DELETE', async () => {
@@ -232,6 +245,16 @@ describe('Wiremock', () => {
       let response = await api.deleteProduct(3);
       expect(response.status).toBe(200);
       expect(response.data.success).toBeTruthy();
+      expect(schemaIsValid(deleteSchema, response.data)).toBeTruthy();
     });
   });
 });
+
+function schemaIsValid(schema, data){
+  const validate = ajv.compile(schema);
+  const valid = validate(data);
+  if (!valid){
+    throw new Error(ajv.errorsText( validate.errors))
+  }
+  return true
+}
